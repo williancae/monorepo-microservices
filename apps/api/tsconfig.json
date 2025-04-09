@@ -1,10 +1,18 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
+    "extends": "../../tsconfig.base.json",
+    "files": [],
+    "include": [],
+    "references": [
+        {
+            "path": "../../libs/config"
+        },
+        {
+            "path": "./tsconfig.app.json"
+        }
+    ],
+    "compilerOptions": {
+        "paths": {
+            "@monorepo/config": ["../../libs/config/src"] // Ajuste o caminho para a lib 'config'
+        }
     }
-  ]
 }

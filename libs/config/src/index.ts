@@ -1,2 +1,3 @@
-export * from './lib/config.module';
-export type { AllConfigType } from './lib/configs/config.type';
+export { ConfigEnvModule } from './lib/config.module';
+export { ConfigEnvService } from './lib/config.service';
+console.log('Config module loaded');
