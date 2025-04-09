@@ -6,14 +6,14 @@ services:
     # -----------------------
     postgres:
         image: postgres:15
-        container_name: db-postgres
+        container_name: aftercode-db-postgres
         restart: always
         ports:
             - '5432:5432'
         environment:
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: postgres
-            POSTGRES_DB: database
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
         volumes:
             - db-postgres-data:/var/lib/postgresql/data
 
@@ -22,9 +22,9 @@ services:
     # -----------------------
     zookeeper:
         image: bitnami/zookeeper:latest
-        container_name: zookeeper
+        container_name: aftercode-zookeeper
         environment:
-            - ALLOW_ANONYMOUS_LOGIN=yes
+            - ALLOW_ANONYMOUS_LOGIN=${ZOOKEEPER_ALLOW_ANONYMOUS_LOGIN}
         ports:
             - '2181:2181'
         restart: always
@@ -34,18 +34,16 @@ services:
     # -----------------------
     kafka:
         image: bitnami/kafka:latest
-        container_name: kafka
+        container_name: aftercode-kafka
         depends_on:
             - zookeeper
         ports:
             - '9092:9092'
         environment:
-            - KAFKA_BROKER_ID=1
-            - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
-            # Para acessar de fora, usamos ADVERTISED_LISTENERS apontando para "localhost"
-            - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
-            # Se quiser acessar de outro host/container, pode ajustar para "kafka:9092" ou o IP da máquina
-            - ALLOW_PLAINTEXT_LISTENER=yes
+            - KAFKA_BROKER_ID=${KAFKA_BROKER_ID}
+            - KAFKA_CFG_ZOOKEEPER_CONNECT=${KAFKA_CFG_ZOOKEEPER_CONNECT}
+            - KAFKA_CFG_ADVERTISED_LISTENERS=${KAFKA_CFG_ADVERTISED_LISTENERS}
+            - ALLOW_PLAINTEXT_LISTENER=${ALLOW_PLAINTEXT_LISTENER}
         restart: always
 
     # -----------------------
@@ -53,12 +51,11 @@ services:
     # -----------------------
     redis:
         image: redis:7
-        container_name: redis
+        container_name: aftercode-redis
         restart: always
         ports:
             - '6379:6379'
 
-# Cria um volume para armazenar dados do Postgres
 volumes:
     db-postgres-data:
         external: false

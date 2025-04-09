@@ -1,28 +1,36 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compileOnSave": false,
-  "files": [],
-  "references": [
-    {
-      "path": "./apps/api"
+    "extends": "./tsconfig.base.json",
+    "compileOnSave": false,
+    "files": [],
+    "compilerOptions": {
+        "emitDeclarationOnly": true,
+        "declaration": true,
+        "composite": true
     },
-    {
-      "path": "./apps/workers"
-    },
-    {
-      "path": "./apps/gateways"
-    },
-    {
-      "path": "./libs/mail"
-    },
-    {
-      "path": "./libs/database"
-    },
-    {
-      "path": "./libs/utils"
-    },
-    {
-      "path": "./libs/shared"
-    }
-  ]
+    "references": [
+        {
+            "path": "./apps/api"
+        },
+        {
+            "path": "./apps/workers"
+        },
+        {
+            "path": "./apps/gateways"
+        },
+        {
+            "path": "./libs/mail"
+        },
+        {
+            "path": "./libs/database"
+        },
+        {
+            "path": "./libs/utils"
+        },
+        {
+            "path": "./libs/shared"
+        },
+        {
+            "path": "./libs/config"
+        }
+    ]
 }
