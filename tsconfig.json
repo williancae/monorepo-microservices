@@ -4,10 +4,25 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/app-e2e"
+      "path": "./apps/api"
     },
     {
-      "path": "./apps/app"
+      "path": "./apps/workers"
+    },
+    {
+      "path": "./apps/gateways"
+    },
+    {
+      "path": "./libs/mail"
+    },
+    {
+      "path": "./libs/database"
+    },
+    {
+      "path": "./libs/utils"
+    },
+    {
+      "path": "./libs/shared"
     }
   ]
 }

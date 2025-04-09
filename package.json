@@ -2,7 +2,13 @@
   "name": "@monorepo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "api": "PORT=8080 NX_DAEMON=false nx serve api --configuration=development",
+    "workers": "PORT=8081 NX_DAEMON=false nx serve workers --configuration=development",
+    "gateways": "PORT=8082 NX_DAEMON=false nx serve gateways --configuration=development",
+    "all": "concurrently --names \"API,WORKERS,GATEWAYS\" --prefix \"[{name}]\" \"npm run api\" \"npm run workers\" \"npm run gateways\"",
+    "custom:start": "node ./scripts/start-services.js -- "
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
@@ -19,7 +25,7 @@
     "@nx/eslint": "20.7.1",
     "@nx/eslint-plugin": "20.7.1",
     "@nx/js": "20.7.1",
-    "@nx/nest": "20.7.1",
+    "@nx/nest": "^20.7.1",
     "@nx/node": "20.7.1",
     "@nx/web": "20.7.1",
     "@nx/webpack": "20.7.1",
@@ -28,6 +34,8 @@
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@types/node": "~18.16.9",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "nx": "20.7.1",
@@ -38,6 +46,7 @@
     "webpack-cli": "^5.1.4"
   },
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "libs/*"
   ]
 }
