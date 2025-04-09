@@ -1,4 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm test
+npx lint-staged
+if [ $? -ne 0 ]; then
+  echo "Lint-staged failed. Please fix the issues before committing."
+  exit 1
+fi
+echo "Lint-staged passed. Proceeding with commit."
+# Run any other pre-commit tasks here
