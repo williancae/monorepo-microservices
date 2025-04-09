@@ -1,52 +1,67 @@
 {
-  "name": "@monorepo/source",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {
-    "api": "PORT=8080 NX_DAEMON=false nx serve api --configuration=development",
-    "workers": "PORT=8081 NX_DAEMON=false nx serve workers --configuration=development",
-    "gateways": "PORT=8082 NX_DAEMON=false nx serve gateways --configuration=development",
-    "all": "concurrently --names \"API,WORKERS,GATEWAYS\" --prefix \"[{name}]\" \"npm run api\" \"npm run workers\" \"npm run gateways\"",
-    "custom:start": "node ./scripts/start-services.js -- "
-  },
-  "private": true,
-  "dependencies": {
-    "@nestjs/common": "^10.0.2",
-    "@nestjs/core": "^10.0.2",
-    "@nestjs/platform-express": "^10.0.2",
-    "axios": "^1.6.0",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.8.0",
-    "@nestjs/schematics": "^10.0.1",
-    "@nestjs/testing": "^10.0.2",
-    "@nx/eslint": "20.7.1",
-    "@nx/eslint-plugin": "20.7.1",
-    "@nx/js": "20.7.1",
-    "@nx/nest": "^20.7.1",
-    "@nx/node": "20.7.1",
-    "@nx/web": "20.7.1",
-    "@nx/webpack": "20.7.1",
-    "@nx/workspace": "20.7.1",
-    "@swc-node/register": "~1.9.1",
-    "@swc/core": "~1.5.7",
-    "@swc/helpers": "~0.5.11",
-    "@types/node": "~18.16.9",
-    "concurrently": "^9.1.2",
-    "cross-env": "^7.0.3",
-    "eslint": "^9.8.0",
-    "eslint-config-prettier": "^10.0.0",
-    "nx": "20.7.1",
-    "prettier": "^2.6.2",
-    "tslib": "^2.3.0",
-    "typescript": "~5.7.2",
-    "typescript-eslint": "^8.19.0",
-    "webpack-cli": "^5.1.4"
-  },
-  "workspaces": [
-    "apps/*",
-    "libs/*"
-  ]
+    "name": "@monorepo/source",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+        "prepare": "npx husky-init",
+        "api": "PORT=8080 NX_DAEMON=false nx serve api --configuration=development",
+        "workers": "PORT=8081 NX_DAEMON=false nx serve workers --configuration=development",
+        "gateways": "PORT=8082 NX_DAEMON=false nx serve gateways --configuration=development",
+        "all": "concurrently --names \"API,WORKERS,GATEWAYS\" --prefix \"[{name}]\" \"npm run api\" \"npm run workers\" \"npm run gateways\"",
+        "custom:start": "node ./scripts/start-services.js -- "
+    },
+    "private": true,
+    "dependencies": {
+        "@nestjs/common": "^10.0.2",
+        "@nestjs/core": "^10.0.2",
+        "@nestjs/platform-express": "^10.0.2",
+        "@nestjs/typeorm": "^11.0.0",
+        "axios": "^1.6.0",
+        "pg": "^8.14.1",
+        "reflect-metadata": "^0.1.13",
+        "rxjs": "^7.8.0",
+        "typeorm": "^0.3.22"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.8.0",
+        "@nestjs/schematics": "^10.0.1",
+        "@nestjs/testing": "^10.0.2",
+        "@nx/eslint": "20.7.1",
+        "@nx/eslint-plugin": "20.7.1",
+        "@nx/js": "20.7.1",
+        "@nx/nest": "^20.7.1",
+        "@nx/node": "20.7.1",
+        "@nx/web": "20.7.1",
+        "@nx/webpack": "20.7.1",
+        "@nx/workspace": "20.7.1",
+        "@swc-node/register": "~1.9.1",
+        "@swc/core": "~1.5.7",
+        "@swc/helpers": "~0.5.11",
+        "@types/node": "~18.16.9",
+        "concurrently": "^9.1.2",
+        "cross-env": "^7.0.3",
+        "eslint": "^9.8.0",
+        "eslint-config-prettier": "^10.0.0",
+        "husky": "^8.0.0",
+        "lint-staged": "^15.5.0",
+        "nx": "20.7.1",
+        "prettier": "^2.6.2",
+        "tslib": "^2.3.0",
+        "typescript": "~5.7.2",
+        "typescript-eslint": "^8.19.0",
+        "webpack-cli": "^5.1.4"
+    },
+    "lint-staged": {
+        "*.{ts,js}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{json,md}": [
+            "prettier --write"
+        ]
+    },
+    "workspaces": [
+        "apps/*",
+        "libs/*"
+    ]
 }

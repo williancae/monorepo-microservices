@@ -1,7 +1,33 @@
 {
-  "recommendations": [
-    "nrwl.angular-console",
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint"
-  ]
+    "recommendations": [
+        "nrwl.angular-console",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "aaron-bond.better-comments",
+        "abhijoybasak.nestjs-files",
+        "ashinzekene.nestjs",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+
+        "dbaeumer.vscode-eslint",
+        "docker.docker",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "estevamsouza.nestjs-snippets-for-vscode",
+        "fuhidev.vscode-nesttypeorm",
+        "gruntfuggly.global-config",
+        "gruntfuggly.todo-tree",
+        "imgildev.vscode-nestjs-generator",
+        "imgildev.vscode-nestjs-snippets-extension",
+        "leizongmin.node-module-intellisense",
+        "meganrogge.template-string-converter",
+        "mikestead.dotenv",
+        "ms-azuretools.vscode-docker",
+        "ms-ceintl.vscode-language-pack-pt-br",
+        "ms-vscode.vscode-typescript-next",
+        "redis.redis-for-vscode",
+        "steoates.autoimport",
+        "wayou.vscode-todo-highlight",
+        "xabikos.javascriptsnippets"
+    ]
 }

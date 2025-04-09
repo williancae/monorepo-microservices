@@ -1,0 +1,201 @@
+{
+    "[typescript, javascript]": {
+        "source.sortImports": "explicit",
+        "source.addMissingImports.ts": "always",
+        "source.removeUnused.ts": "always",
+
+        "typescript.implementationsCodeLens.enabled": true,
+        "typescript.implementationsCodeLens.showOnInterfaceMethods": true,
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "typescript.preferences.quoteStyle": "single",
+        "javascript.updateImportsOnFileMove.enabled": "always",
+
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.rulers": [120],
+        "prettier.printWidth": 120,
+
+        "editor.formatOnPaste": true,
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true,
+        "editor.guides.indentation": true,
+        "editor.detectIndentation": true,
+
+        "javascript.format.insertSpaceAfterConstructor": true,
+
+        "editor.codeActionsOnSave": {
+            "source.fixAll.docker": "never",
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        }
+    },
+
+    "workbench.tree.indent": 15,
+    "explorer.incrementalNaming": "smart",
+
+    "todo-tree.tree.autoRefresh": true,
+    "todo-tree.highlights.customHighlight": {
+        "DONE": {
+            "icon": "check",
+            "iconColour": "#4BE765",
+            "gutterIcon": true,
+            "background": "#4BE765",
+            "foreground": "#1A2B34",
+            "fontWeight": "light"
+        },
+        "TODO": {
+            "icon": "stop",
+            "iconColour": "#B14345",
+            "gutterIcon": true,
+            "background": "#B14345",
+            "foreground": "#CDC7E4",
+            "fontWeight": "bold"
+        },
+        "NOTE": {
+            "icon": "note",
+            "iconColour": "#0F9CA9",
+            "gutterIcon": true,
+            "background": "#CDC7E4",
+            "foreground": "#0F9CA9",
+            "fontWeight": "normal",
+            "fontStyle": "italic",
+            "opacity": 20
+        },
+        "FIXME": {
+            "icon": "beaker",
+            "iconColour": "#E9A620",
+            "gutterIcon": true,
+            "background": "#E9A620",
+            "foreground": "#1A2B34",
+            "fontWeight": "bold",
+            "opacity": 90
+        },
+        "BUG": {
+            "icon": "bug",
+            "iconColour": "#4BE765",
+            "gutterIcon": true,
+            "background": "#1A2B34",
+            "foreground": "#4BE765",
+            "fontWeight": "light"
+        },
+        "[ ]": {
+            "background": "#1A2B34",
+            "iconColour": "#B14345",
+            "gutterIcon": true,
+            "foreground": "#B14345",
+            "fontWeight": "bold",
+            "icon": "alert"
+        },
+        "[x]": {
+            "background": "#CDC7E4",
+            "iconColour": "#4BE765",
+            "gutterIcon": true,
+            "foreground": "#4BE765",
+            "fontWeight": "bold",
+            "icon": "check",
+            "opacity": 40
+        }
+    },
+    "todo-tree.general.tagGroups": {
+        "FIXME": ["FIXME", "FIXIT", "FIX", "FIXTHIS", "FIX!", "NEEDSFIX", "FIXNOW", "MUSTFIX"],
+        "TODO": ["TODO", "TO-DO", "NEEDSWORK", "DOTHIS", "WILLDO"],
+        "BUG": ["BUG", "FOUNDBUG", "ISBUG", "BUGFIX", "ISBUGFIX", "XXX"],
+        "NOTE": ["NOTE", "REMINDER", "CHECK", "HACK"],
+        "[x]": ["[x]", "[X]"],
+        "DONE": ["DONE", "COMPLETED", "FINISHED", "RESOLVED", "OK"]
+    },
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*\\*\\s*)\\s*($TAGS)",
+
+    "better-comments.multilineComments": true,
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "[ ]",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "DONE",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "[x]",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "COMPLETED",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "NOTE",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
+    "better-comments.highlightPlainText": false
+}
