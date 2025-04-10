@@ -1,4 +1,12 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+if ! npx lint-staged; then
+  echo "❌ lint-staged falhou. Commit cancelado.";
+  exit 1;
+fi
+
+start=$(date +%s)
 npx lint-staged
+end=$(date +%s)
+echo "✅ lint-staged finalizado em $((end - start))s"
