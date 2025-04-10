@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "private": true,
     "nx": {
-        "name": "@monorepo/api",
+        "name": "@application/api",
         "targets": {
             "build": {
                 "executor": "nx:run-commands",
@@ -28,16 +28,16 @@
                     "build"
                 ],
                 "options": {
-                    "buildTarget": "@monorepo/api:build",
+                    "buildTarget": "@application/api:build",
                     "inspect": false,
                     "runBuildTargetDependencies": false
                 },
                 "configurations": {
                     "development": {
-                        "buildTarget": "@monorepo/api:build:development"
+                        "buildTarget": "@application/api:build:development"
                     },
                     "production": {
-                        "buildTarget": "@monorepo/api:build:production"
+                        "buildTarget": "@application/api:build:production"
                     }
                 }
             },

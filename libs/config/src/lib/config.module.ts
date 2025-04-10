@@ -1,4 +1,4 @@
-// libs/config/src/lib/monorepo-config.module.ts
+// libs/config/src/lib/application-config.module.ts
 import { Module } from '@nestjs/common';
 import { ConfigEnvService } from './config.service';
 

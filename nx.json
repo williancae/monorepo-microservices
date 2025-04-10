@@ -11,7 +11,9 @@
         {
             "plugin": "@nx/js/typescript",
             "options": {
-                "typecheck": { "targetName": "typecheck" },
+                "typecheck": {
+                    "targetName": "typecheck"
+                },
                 "build": {
                     "targetName": "build",
                     "configName": "tsconfig.lib.json",
@@ -19,7 +21,14 @@
                     "watchDepsName": "watch-deps"
                 }
             },
-            "exclude": ["libs/mail/*", "libs/database/*", "libs/utils/*", "libs/shared/*", "libs/config/*"]
+            "exclude": [
+                "libs/mail/*",
+                "libs/database/*",
+                "libs/utils/*",
+                "libs/shared/*",
+                "libs/config/*",
+                "libs/kafka/*"
+            ]
         },
         {
             "plugin": "@nx/webpack/plugin",
@@ -31,6 +40,20 @@
                 "watchDepsTargetName": "watch-deps"
             }
         },
-        { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } }
+        {
+            "plugin": "@nx/eslint/plugin",
+            "options": {
+                "targetName": "lint"
+            }
+        },
+        {
+            "plugin": "@nx/js/typescript",
+            "include": ["libs/kafka/*"],
+            "options": {
+                "typecheck": {
+                    "targetName": "typecheck"
+                }
+            }
+        }
     ]
 }

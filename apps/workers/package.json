@@ -1,45 +1,45 @@
 {
-  "name": "@monorepo/workers",
-  "version": "0.0.1",
-  "private": true,
-  "nx": {
-    "targets": {
-      "build": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "webpack-cli build",
-          "args": [
-            "node-env=development"
-          ]
-        },
-        "configurations": {
-          "development": {
-            "args": [
-              "node-env=development"
-            ]
-          }
+    "name": "@application/workers",
+    "version": "0.0.1",
+    "private": true,
+    "nx": {
+        "targets": {
+            "build": {
+                "executor": "nx:run-commands",
+                "options": {
+                    "command": "webpack-cli build",
+                    "args": [
+                        "node-env=development"
+                    ]
+                },
+                "configurations": {
+                    "development": {
+                        "args": [
+                            "node-env=development"
+                        ]
+                    }
+                }
+            },
+            "serve": {
+                "executor": "@nx/js:node",
+                "defaultConfiguration": "development",
+                "dependsOn": [
+                    "build"
+                ],
+                "options": {
+                    "buildTarget": "@application/workers:build",
+                    "runBuildTargetDependencies": false,
+                    "inspect": false
+                },
+                "configurations": {
+                    "development": {
+                        "buildTarget": "@application/workers:build:development"
+                    },
+                    "production": {
+                        "buildTarget": "@application/workers:build:production"
+                    }
+                }
+            }
         }
-      },
-      "serve": {
-        "executor": "@nx/js:node",
-        "defaultConfiguration": "development",
-        "dependsOn": [
-          "build"
-        ],
-        "options": {
-          "buildTarget": "@monorepo/workers:build",
-          "runBuildTargetDependencies": false,
-          "inspect": false
-        },
-        "configurations": {
-          "development": {
-            "buildTarget": "@monorepo/workers:build:development"
-          },
-          "production": {
-            "buildTarget": "@monorepo/workers:build:production"
-          }
-        }
-      }
     }
-  }
 }

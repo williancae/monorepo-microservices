@@ -1,4 +1,4 @@
-import { ConfigEnvModule } from '@monorepo/config';
+import { ConfigEnvModule } from '@application/config';
 
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';

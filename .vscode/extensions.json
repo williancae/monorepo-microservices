@@ -28,6 +28,7 @@
         "redis.redis-for-vscode",
         "steoates.autoimport",
         "wayou.vscode-todo-highlight",
-        "xabikos.javascriptsnippets"
+        "xabikos.javascriptsnippets",
+        "nrwl.angular-console"
     ]
 }

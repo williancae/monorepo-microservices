@@ -12,7 +12,7 @@
     ],
     "compilerOptions": {
         "paths": {
-            "@monorepo/config": ["../../libs/config/src"] // Ajuste o caminho para a lib 'config'
+            "@application/config": ["../../libs/config/src"] // Ajuste o caminho para a lib 'config'
         }
     }
 }
