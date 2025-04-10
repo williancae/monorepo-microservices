@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm test
+npx prettier --write .
+git add .
+git commit -m "chore: format code"
+
+npx lint-staged

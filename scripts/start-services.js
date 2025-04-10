@@ -16,9 +16,9 @@ const { spawn } = require('child_process');
 
 // Mapeie aqui seus serviços e os comandos associados (definidos no package.json)
 const availableServices = {
-  api: 'npm run api',
-  workers: 'npm run workers',
-  gateways: 'npm run gateways',
+    api: 'npm run api',
+    workers: 'npm run workers',
+    gateways: 'npm run gateways',
 };
 
 // -----------------------------------------------------------------------
@@ -29,13 +29,10 @@ const servicesRequested = process.argv.slice(2);
 
 // Se nenhum serviço foi informado, mostra ajuda e sai.
 if (!servicesRequested.length) {
-  console.log('Nenhum serviço especificado.');
-  console.log('Uso: node serveServices.js [service1] [service2] ...');
-  console.log(
-    'Serviços disponíveis:',
-    Object.keys(availableServices).join(', ')
-  );
-  process.exit(1);
+    console.log('Nenhum serviço especificado.');
+    console.log('Uso: node serveServices.js [service1] [service2] ...');
+    console.log('Serviços disponíveis:', Object.keys(availableServices).join(', '));
+    process.exit(1);
 }
 
 // -----------------------------------------------------------------------
@@ -45,18 +42,18 @@ const recognizedServices = [];
 const commands = [];
 
 for (const srv of servicesRequested) {
-  if (availableServices[srv]) {
-    recognizedServices.push(srv);
-    commands.push(availableServices[srv]);
-  } else {
-    console.log(`Serviço "${srv}" não é reconhecido. Será ignorado.`);
-  }
+    if (availableServices[srv]) {
+        recognizedServices.push(srv);
+        commands.push(availableServices[srv]);
+    } else {
+        console.log(`Serviço "${srv}" não é reconhecido. Será ignorado.`);
+    }
 }
 
 // Se não houver nenhum serviço válido, sai.
 if (!recognizedServices.length) {
-  console.log('Nenhum serviço válido foi solicitado. Encerrando...');
-  process.exit(1);
+    console.log('Nenhum serviço válido foi solicitado. Encerrando...');
+    process.exit(1);
 }
 
 // -----------------------------------------------------------------------
@@ -66,12 +63,12 @@ if (!recognizedServices.length) {
 //    - Lista de comandos
 // -----------------------------------------------------------------------
 const concurrentlyArgs = [
-  'concurrently',
-  '--names',
-  recognizedServices.join(','), // ex: "api,workers"
-  '--prefix',
-  '[{name}]', // Assim, o log fica "[API]" ou "[WORKERS]"
-  ...commands, // ex: "npm run api", "npm run workers"
+    'concurrently',
+    '--names',
+    recognizedServices.join(','), // ex: "api,workers"
+    '--prefix',
+    '[{name}]', // Assim, o log fica "[API]" ou "[WORKERS]"
+    ...commands, // ex: "npm run api", "npm run workers"
 ];
 
 console.log('Iniciando serviços:', recognizedServices.join(', '));
@@ -82,5 +79,5 @@ const child = spawn('npx', concurrentlyArgs, { stdio: 'inherit' });
 
 // Quando o concurrently encerrar, repassa o código de saída para este processo
 child.on('close', (code) => {
-  process.exit(code);
+    process.exit(code);
 });
