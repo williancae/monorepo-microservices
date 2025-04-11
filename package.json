@@ -3,7 +3,6 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "prepare": "npx husky-init && husky install",
         "format": "nx format:write",
         "api": "nx serve api --configuration=development ",
         "workers": "nx serve workers --configuration=development ",
