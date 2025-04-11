@@ -1,17 +1,32 @@
-import { ConfigEnvService } from '@application/config';
-import { Logger } from '@nestjs/common';
+// apps/workers/src/main.ts
 import { NestFactory } from '@nestjs/core';
+
+import { Logger } from '@nestjs/common';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
-    const app = await NestFactory.create(AppModule);
-    const configEnv = app.get(ConfigEnvService);
-    const globalPrefix = 'workers';
-    app.setGlobalPrefix(globalPrefix);
+    console.log('\n\n', {
+        client: {
+            brokers: [process.env.KAFKA_BROKERS ?? 'localhost:9092'],
+        },
+        consumer: {
+            groupId: process.env.KAFKA_GROUP_ID ?? 'workers-group',
+        },
+    });
 
-    const port = configEnv.app.worker.port || 3001;
-    await app.listen(port);
-    Logger.log(`🧰 Workers is running on: http://localhost:${port}/${globalPrefix}`);
+    const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
+        transport: Transport.KAFKA,
+        options: {
+            client: {
+                brokers: [process.env.KAFKA_BROKERS ?? 'localhost:9092'],
+            },
+            consumer: {
+                groupId: process.env.KAFKA_GROUP_ID ?? 'workers-group',
+            },
+        },
+    });
+    await app.listen();
+    Logger.log(`🧰 Workers microservice running as Kafka consumer...`, 'Bootstrap');
 }
-
 bootstrap();
